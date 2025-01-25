@@ -1,4 +1,4 @@
-%%manim -qm logo
+%%manim -qh logo
 
 class logo(Scene):
     def construct(self):
@@ -37,16 +37,20 @@ class logo(Scene):
         self.wait(1)
 
         # Appearance of new lines
-        line_5h = Line(start=[-2.7, -0.35, 0], end=[-4.4, -0.35, 0], stroke_width=22).shift(UP * 0.5)
-        line_6v = Line(start=[-1, 1.8, 0], end=[-1, 0.5, 0], stroke_width=22)
+        line_5h = Line(start=[-2.7, -0.35, 0], end=[-4.4, -0.35, 0], stroke_width=22).shift(UP * 0.5).set_z_index(11)
+        line_5h_s =  Line(start=[-2.7, -0.35, 0], end=[-4.4, -0.35, 0], stroke_width=22,stroke_color=BLACK).shift(UP * 0.5).shift(RIGHT*0.05+DOWN*0.05).set_z_index(10).set_stroke(opacity=0.5)
+        line_6v = Line(start=[-1, 1.8, 0], end=[-1, 0.3, 0], stroke_width=22).set_z_index(12)
+        line_6v_s= Line(start=[-1, 1.8, 0], end=[-1, 0.3, 0], stroke_width=22,stroke_color=BLACK).set_z_index(11).shift(DOWN*0.05+RIGHT*0.05).set_stroke(opacity=0.5)
         line_7v = Line(start=[1.5, -1, 0], end=[1.5, 0.25, 0], stroke_width=22)
         line_8v = Line(start=[1, 1.8, 0], end=[1, 0.5, 0], stroke_width=22)
         line_9h = Line(start=[-2.3, 1.2, 0], end=[-1.4, 1.2, 0], stroke_width=22)
-        line_10v = Line(start=[2, -1.5, 0], end=[2, 0.25, 0], stroke_width=22).set_z_index(11)
+        line_10v = Line(start=[2, -1.5, 0], end=[2, 0.25, 0], stroke_width=22).set_z_index(12)
+        line_10v_s = Line(start=[2, -1.5, 0], end=[2, 0.25, 0], stroke_width=22, stroke_color=BLACK).set_z_index(11).shift(DOWN*0.05+RIGHT*0.05).set_stroke(opacity=0.5)
         line_11v = Line(start=[-3.35, 0.1, 0], end=[-3.35, 0.8, 0], stroke_width=22)
         line_12h = Line(start=[1, 1.1, 0], end=[0, 1.1, 0], stroke_width=22)
         line_13h = Line(start=[0.4, 0.13, 0], end=[1.2, 0.13, 0], stroke_width=22)
-        line_14 = Line(start=[0.4, -1, 0], end=[1.1, 0.135, 0], stroke_width=22)
+        line_14 = Line(start=[0.4, -1, 0], end=[1.1, 0.135, 0], stroke_width=22).set_z_index(10)
+        line_14_s = Line(start=[0.4, -1, 0], end=[1.1, 0.135, 0], stroke_width=22,stroke_color=BLACK).set_z_index(9).shift(DOWN*0.05+RIGHT*0.05).set_stroke(opacity=0.5)
         line_15h = Line(start=[0.75, -0.3, 0], end=[1.5, -0.3, 0], stroke_width=22)
         line_16v = Line(start=[3.5,2,0],end=[3.5,0.5,0], stroke_width=22)
          #lines related to up/down circles transformation
@@ -102,7 +106,7 @@ class logo(Scene):
        
         line_4h.generate_target()
         line_4h.target.shift(2.6*RIGHT).scale(0.075)
-        line_4_ch1 = Line(start=[2.65,-2.8,0], end=[2.65,-1.7,0], stroke_width=22)
+        line_4_ch1 = Line(start=[2.65,-2.8,0], end=[2.65,-1.7,0], stroke_width=22).set_z_index(10)
         line_4_ch1.generate_target()
         line_4_ch1.target.shift(2*UP)
         #shadow of 4
@@ -122,23 +126,26 @@ class logo(Scene):
         #2nd Transformation
               
         #Appearance of new Shapes
-        circle_2 = Annulus(inner_radius=0.001, outer_radius=0.002).shift(1.5*LEFT+0.25*DOWN)
-        circle_2_ch1= Annulus(inner_radius=0.2, outer_radius= 0.4).shift(1.5*LEFT+0.25*DOWN)
+        circle_2 = Annulus(inner_radius=0.001, outer_radius=0.002).shift(1.5*LEFT+0.25*DOWN).set_z_index(12)
+        #circle_2_s= Annulus(inner_radius=0.001, outer_radius=0.002,stroke_color=BLACK).shift(1.55*LEFT+0.3*DOWN).set_z_index(11).set_stroke(opacity=0.5)
+        circle_2_ch1= Annulus(inner_radius=0.2, outer_radius= 0.4).shift(1.5*LEFT+0.25*DOWN).set_z_index(12)
+        #circle_2_ch1_s= Annulus(inner_radius=0.2, outer_radius= 0.4,stroke_color=BLACK).shift(1.55*LEFT+0.3*DOWN).set_z_index(11).set_stroke(opacity=0.5)
 
         circle_3 = Annulus(inner_radius=0, outer_radius=0).shift(0.3*LEFT+1.1*UP)
         circle_3_ch1 = Annulus(inner_radius=0.2, outer_radius=0.4).shift(0.3*LEFT+1.1*UP)
 
         up_circle2 = Arc(radius=0.3,angle=-PI *2, start_angle=360*DEGREES, stroke_width=22).shift(2.6*RIGHT + UP*1)
 
-        down_circle2 = Arc(radius=0.3,angle=PI *2, start_angle=360*DEGREES, stroke_width=22).shift(3.35*LEFT + UP*1.1)
+        down_circle2 = Arc(radius=0.3,angle=PI *2, start_angle=360*DEGREES, stroke_width=22).shift(3.35*LEFT + UP*1.1).set_z_index(10)
+        down_circle2_s = Arc(radius=0.3,angle=PI *2, start_angle=360*DEGREES, stroke_width=22,stroke_color=BLACK).shift(3.35*LEFT + UP*1.02).set_stroke(opacity=0.5).set_z_index(9)
         
         self.play(Succession(MoveToTarget(line_1h),Create(line_1h_ch1)), Succession(MoveToTarget(line_1h_s),Uncreate(line_1h_s)),
                   MoveToTarget(triangle),MoveToTarget(triangle_s),
                   MoveToTarget(line_2v), MoveToTarget(line_2v_s),
                   MoveToTarget(line_3v), MoveToTarget(line_3v_s),
                   MoveToTarget(line_4h), MoveToTarget(line_4h_s),
-                  Create(line_6v),
-                  Create(line_5h),
+                  Create(line_6v), Create(line_6v_s),
+                  Create(line_5h),  Create(line_5h_s),
                   Create(line_upc1),
                   Create(line_dc1),
                   Uncreate(down_circle),
@@ -166,7 +173,8 @@ class logo(Scene):
                   Create(line_4_ch1),  Create(line_4_ch1_s),
                   FadeOut(line_4h,shift=UP), FadeOut(line_4h_s,shift=UP),
                   ReplacementTransform(circle_2, circle_2_ch1),
-                  run_time=1.2,
+                  #ReplacementTransform(circle_2_s, circle_2_ch1_s),
+                  run_time=2,
                  )
         
         line_upc2.generate_target()
@@ -174,25 +182,25 @@ class logo(Scene):
         line_dc2.generate_target()
         line_dc2.target.shift(2.2*UP).scale(0.01)
 
-        self.play(Succession(Create(line_upc2),line_upc2.animate.stretch(0, dim=1, about_edge=DOWN), run_time=0.7),
-                  Succession(Create(line_dc2),line_dc2.animate.stretch(0, dim=1, about_edge=UP),run_time=0.7),
+        self.play(Succession(Create(line_upc2),line_upc2.animate.stretch(0, dim=1, about_edge=DOWN),Create(up_circle2, rate_func=rate_functions.ease_in_out_sine)),
+                  Succession(Create(line_dc2),line_dc2.animate.stretch(0, dim=1, about_edge=UP),((Create(down_circle2_s, rate_func=rate_functions.ease_in_out_sine)), Create(down_circle2, rate_func=rate_functions.ease_in_out_sine))),
                   FadeOut(line_upc1, shift=DOWN, run_time=0.2),
                   FadeOut(line_dc1, shift=UP, run_time=0.2),
                   Create(line_13h),
-                  Create(line_14),
-                  Create(line_10v),
+                  Create(line_14), Create(line_14_s),
+                  Create(line_10v),  Create(line_10v_s),
                   Create(line_9h),
                   Create(line_11v),
                   Create(line_16v),
                   ReplacementTransform(circle_3, circle_3_ch1),
                   MoveToTarget(line_2v_ch1), Succession(MoveToTarget(line_2v_ch1_s),Uncreate(line_2v_ch1_s,run_time=0.2)),
-                  MoveToTarget(line_4_ch1), Succession(MoveToTarget(line_4v_ch1_s),Uncreate(line_4v_ch1_s,run_time=0.2)),
+                  MoveToTarget(line_4_ch1), Succession(MoveToTarget(line_4_ch1_s),Uncreate(line_4_ch1_s,run_time=0.2)),
                   Create(line_12h),
-                  Create(up_circle2, lag_ratio=0.3),
-                  Create(down_circle2, lag_ratio=0.3),
+                  #Create(up_circle2, lag_ratio=0.8, rate_func=rate_functions.ease_in_out_quad),
+                  #Create(down_circle2, lag_ratio=0.8, rate_func=rate_functions.ease_in_out_quad),
                 #   triangle.animate.set_color(RED_A),
-                  run_time=1.2,
-                  rate_functions= slow_into)
+                  run_time=2,
+                 )
         
         self.play(Create(line_15h),
                   down_circle2.animate.set_color(MAROON_C),
@@ -206,4 +214,4 @@ class logo(Scene):
                   rate_functions = lingering
 
         )
-        self.wait(2)
+        self.wait(4)
