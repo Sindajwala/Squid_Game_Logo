@@ -2,9 +2,18 @@ from manim import*
 
 class zindex(Scene):
     def construct(self):
-        square1 = Square(side_length=2, stroke_width=15, color=BLUE).set_fill(GREEN, opacity=0.8).shift(UP*1.5+LEFT*3.5).set_z_index(8)
-        square2 = Square(side_length=2, stroke_width=15,color=YELLOW).set_fill(BLUE, opacity=0.8).shift(UP*2,LEFT*3).set_z_index(9)
-        square3 = Square(side_length=2, stroke_width=15).set_fill(RED, opacity=0.8).shift(UP*2.5,LEFT*2.5).set_z_index(10)
+            
+        text_z= Text("Z-index").scale(3)
+
+        self.play(Create(text_z))
+        
+        text_z1=Text("Z-index").scale(0.75).shift(UP*3.5)
+
+        self.play(FadeTransform(text_z,text_z1,stretch=True))
+
+        square1 = Square(side_length=2, stroke_width=15, color=BLUE).set_fill(GREEN, opacity=0.8).shift(UP*1+LEFT*3.5).set_z_index(8)
+        square2 = Square(side_length=2, stroke_width=15,color=YELLOW).set_fill(BLUE, opacity=0.8).shift(UP*1.5,LEFT*3).set_z_index(9)
+        square3 = Square(side_length=2, stroke_width=15).set_fill(RED, opacity=0.8).shift(UP*2,LEFT*2.5).set_z_index(10)
         text1 = Text("z=index=1").next_to(square1,DOWN*0.75+RIGHT*0.5).scale(0.5)
         text2 = Text("z=index=2").next_to(square2,DOWN*0.75+RIGHT*0.5).scale(0.5)
         text3 = Text("z=index=3").next_to(square3,DOWN*0.75+RIGHT*0.5).scale(0.5)
@@ -18,7 +27,7 @@ class zindex(Scene):
 
         #Arrow
 
-        arrow_1 = Arrow(start=LEFT*2+UP*0.2, end=UP*2, color=GOLD)
+        arrow_1 = Arrow(start=LEFT*2+DOWN*0.2, end=UP*1.6, color=GOLD)
         arrow_2 = Arrow(start=RIGHT*3.5, end=RIGHT*5.5+DOWN*1.5)
 
         self.play(Succession(Succession(FadeIn(square1),AddTextLetterByLetter(text1)),
